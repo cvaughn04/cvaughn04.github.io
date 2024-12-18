@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cole Vaughn</title>
+    <link rel="icon" type="image/x-icon" href="desktopimg/favicon.ico">
+
+    <link rel="stylesheet" href="backgroundstyles.css" />
+    <link rel="stylesheet" href="navstyles.css" />
+    <link rel="stylesheet" href="modalstyles.css" />
+    <link rel="stylesheet" href="iconstyles.css" />
+    <script src="desktopscript.js" defer></script>
+    <script src="modal.js" defer></script>
+    <script src="clock.js" defer></script>
+    <script src="startMenu.js" defer></script>
+
+
+</head>
+
+<body>
+    <div id="overlay-black"></div>
+
+
+    <div id="firstModal" class="modal">
+        <div id="firstModaldrag" class="modal-content">
+            <div class="modal-header">
+                <div class="modal-header-text">Hello, Im...
+                </div>
+                <div class="close-container">
+                    <span class="close" onclick="closeModal('firstModal')">x</span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="media-container">
+                    <img class="media" src="desktopimg/WARNING.png" alt="Image">
+                    <h1>Cole Vaughn</h1>
+                </div>
+                <div class="modal-body-text">
+                    <p>Computer Science student and Etsy artist</p>
+                </div>
+                <button class="continue-button" onclick="openModal('secondModal')">continue</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second Modal -->
+    <div id="secondModal" class="modal">
+        <div id="secondModaldrag" class="modal-content">
+            <div class="modal-header">
+                <div class="modal-header-text">This is me =>
+                </div>
+                <div class="close-container">
+                    <span class="close" onclick="closeModal('secondModal')">x</span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="profile-pic">
+                    <img src="desktopimg/profile photo.jpg" style="width:100%; " alt="Image">
+                </div>
+                <button class="continue-button" onclick="openModal('thirdModal')">continue</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="thirdModal" class="modal">
+        <div id="thirdModaldrag" class="modal-content">
+            <div class="modal-header">
+                <div class="modal-header-text">Proficiencies
+                </div>
+                <div class="close-container">
+                    <span class="close" onclick="closeModal('thirdModal')">x</span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body-text">
+                    <p>&#x2022; C++</p>
+                    <p>&#x2022; Object Oriented Design</p>
+                    <p>&#x2022; Agile Methodologies</p>
+                    <p>&#x2022; HTML, CSS, JavaScript</p>
+                    <p>&#x2022; Node.js & API's</p>
+                    <p>&#x2022; Java & Android Studio</p>
+                    <p>&#x2022; Python</p>
+                    <p>&#x2022; MIPS Assembly</p>
+                    <p>&#x2022; Aseprite 2D Animation</p>
+                </div>
+                <button class="continue-button" onclick="openModal('fourthModal')">continue</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="fourthModal" class="modal">
+        <div id="fourthModaldrag" class="modal-content">
+            <div class="modal-header">
+                <div class="modal-header-text">Thats all...
+                </div>
+                <div class="close-container">
+                    <span class="close" onclick="closeModal('fourthModal')">x</span>
+                </div>
+            </div>
+            <div class="modal-body" style="padding-top: 2px;">
+                <div class="modal-body-text">
+                    <p style="line-height: 1.25;">I hope you enjoy my windows 95 style portfolio. 
+                        Modal popups can be dragged and closed, the desktop 
+                        icons will direct you to more pages to explore, and 
+                        the start button reveals the same links. Thanks for visiting!</p>
+                </div>
+                <!-- <button class="continue-button" onclick="openModal('fifthModal')">continue</button> -->
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="itemIconContainer">
+        <div class="itemIcon">
+            <a href="index.html">
+                <img src="desktopimg/homeicon.png" title="Home">
+            </a>
+        </div>
+
+        <div class="itemIcon">
+            <a href="https://www.etsy.com/shop/VonDesStudio?ref=shop_sugg_market">
+                <img src="desktopimg/etsyicon.png" title="Etsy">
+            </a>
+        </div>
+
+        <div class="itemIcon">
+            <a href="projectspage/projects.html">
+                <img src="desktopimg/projectsicon.png" title="Projects">
+            </a>
+        </div>
+
+        <div class="itemIcon">
+            <a href="classes/index.html">
+                <img src="desktopimg/classesicon.png" title="Classes">
+            </a>
+        </div>
+
+        <div class="itemIcon">
+            <a href="contactpage/contact.html">
+                <img src="desktopimg/contacticon.png" title="Contact">
+            </a>
+        </div>
+
+        <div class="itemIcon">
+            <a href="https://github.com/cvaughn04/Kattis-Solutions">
+                <img src="desktopimg/kattisicon.png" title="Contact">
+            </a>
+        </div>
+        
+    </div>
+
+    <div class="trashIconContainer">
+        <div class="trashIcon">
+            <a href="index.html">
+                <img src="desktopimg/recyclebin.png" title="Recycle">
+            </a>
+        </div>
+    </div>
+
+
+    <div class="navbar">
+        <button id="start-button" onclick="toggleStartMenu()">
+            <img src="desktopimg/start.png" alt="Start Icon" style="width:25px; padding-right:3px;">
+            Start
+        </button>
+        <div id="clock">00:00 AM</div>
+    </div>
+    <div class="start-menu" id="startMenu">
+        <a href="https://www.etsy.com/shop/VonDesStudio?ref=shop_sugg_market"><img src="desktopimg/etsystart.png" alt="Image 1"></a>
+        <a href="projectspage/projects.html"><img src="desktopimg/projectsstart.png" alt="Image 2"></a>
+        <a href="https://csdb01.cs.edinboro.edu/~c11019419v"><img src="desktopimg/classesstart.png" alt="Image 3"></a>
+        <a href="contactpage/contact.html"><img src="desktopimg/contactstart.png" alt="Image 4"></a>
+    </div>
+    <div class="fgbg"></div>
+
+
+
+</body>
+
+</html>

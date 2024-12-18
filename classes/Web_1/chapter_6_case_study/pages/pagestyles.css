@@ -1,0 +1,333 @@
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* reset rules */
+html, body, div, span, applet, object, iframe, h2, h3 , h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+
+
+body {
+    background: rgb(58, 58, 58);
+    color: white;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  
+  
+  header {
+    background-color: rgb(83, 65, 65);
+    background-image: url("images/banner.png");
+    background-size: 100%;
+    background-position: center;
+    height: 100px;
+    padding: 0px;
+    text-align: center;
+  }
+  
+  header a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-top: 40px;
+  }
+  
+  header .logo a {
+    background-image: url("../images/vd_logo.png");
+    background-size: 80px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 80px;
+    position: relative;
+    text-indent: -9999999px;
+    top: -30px;
+    width: 100px;
+ 
+  }
+  
+  nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  nav li {
+    display: inline-block;
+    padding: 0px;
+    margin-right: 20px;
+  }
+  
+
+  
+  .features {
+    background: white;
+    color: gray;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .features figure {
+    margin: auto;
+    text-align: center;
+    text-transform: uppercase;
+    width: 200px;
+  }
+  
+  .features figure img {
+    border: 1px solid white;
+    border-radius: 10%;
+    box-shadow: gray 0 0 10px;
+    width: 200px;
+  }
+  
+
+  div.bodytext {
+    background: rgb(184, 184, 184);
+    color: rgb(20, 20, 20);
+    font-size: 12px;
+    padding: 20px 20px;
+
+
+  }
+
+  .container {
+    /* align-items: center;
+    justify-content: center; */
+    background-color: black;    
+    display: flex;
+    padding: 50px;
+  }
+  
+  img .float{
+    float: right;
+  }
+  
+  .text {
+    color: white;
+    font-size: 20px;
+    padding-left: 20px;
+    float: left;
+  }
+  
+  footer {
+    background: black;
+    color: gray;
+    font-size: 20px;
+    padding: 20px 20px;
+    text-align: center;
+  }
+  
+
+
+  /* 2-4 stuff */
+
+/* header .check {
+  background: #330570;
+  width: 100%;
+  color: #FFFFFF;
+  font-size: 48px;
+  text-align: center;
+  line-height: 1.5em;
+}  */
+
+
+
+
+article {
+  background-color: rgb(46, 46, 45);
+    width: 100%;
+    height: 350px;
+    text-align: left;
+    font-family: monospace;
+    /* text-transform: uppercase; */
+    color: rgb(185, 178, 143);
+
+ } 
+ 
+ article h2 {
+    font-weight: bold;
+    font-size: 24px;
+    padding: 10px;
+
+    font-family: monospace;
+    /* text-transform: uppercase; */
+    color: rgb(185, 178, 143);
+   
+ } 
+ 
+ /* form */
+ form {
+    margin: 0 auto;
+ }
+ 
+ input {
+    float: left;
+    clear: left;
+    margin: 10px;
+ }
+ 
+ label {
+    float: left;
+    font-size: 1.4em;
+    font-family: monospace;
+    /* text-transform: uppercase; */
+    color: rgb(185, 178, 143);
+    
+ }
+ fieldset legend {
+  color: white;
+  width: 300px;
+  text-align: left;
+  font-size: 1.05em;
+  padding-bottom: 20px;
+}
+
+input {
+  display: block;
+  float: left;
+  font-size: 1.05em;
+  color: rgb(80, 80, 80);
+  margin-bottom: 15px;
+}
+
+input:invalid {
+  border-color: red;
+  box-shadow: 2px 2px 5px red;
+}
+
+input[type='submit'] {
+  padding: 20px;
+  display: block;
+  margin: 0 auto;
+  float: left;
+  font-size: 1.1em;
+  background-color: turquoise;
+  color: white;
+  padding: 3px;
+  width: 100px;
+}
+div#feedback {
+  clear: left;
+  color: red;
+  margin-left: 25px;
+  margin-bottom: 20px;
+}
+
+div#feedbackconfirm {
+  clear: left;
+  color: red;
+  margin-left: 25px;
+  margin-bottom: 20px;
+}
+ 
+ label .user {
+  display: block;
+  width: 100px;
+  float: left;
+  clear: left;
+  margin-bottom: 15px;
+  text-align: right;
+  margin-right: 20px;
+  font-size: 1em;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
+  color: rgb(80,80,80);
+  
+}
+ 
+ aside {
+    position: absolute;
+    top: 300px;
+    left: 10px;
+    
+ }
+  
+ aside span {
+    position: absolute;
+    font-size: 1.4em;
+ }
+ 
+ aside span#totalLab {
+    top: 0px;
+    left: 0px;
+    width: 220px;  
+    font-family: monospace;
+    /* text-transform: uppercase; */
+    color: rgb(185, 178, 143);
+     
+ }
+ 
+ aside span#foodTotal {
+    top: 0px;
+    left: 280px;
+    width: 100px;
+    text-align: right;
+    font-family: monospace;
+    /* text-transform: uppercase; */
+    color: rgb(185, 178, 143);
+    
+ }   
+ 
+ aside span#taxLab {
+    top: 40px;
+    left: 0px;
+    width: 220px;
+    font-family: monospace;
+    /* text-transform: uppercase; */
+    color: rgb(185, 178, 143);
+       
+ }
+ 
+ aside span#foodTax {
+    top: 40px;
+    left: 280px;
+    width: 100px;
+    text-align: right;
+    font-family: monospace;
+    /* text-transform: uppercase; */
+    color: rgb(185, 178, 143);
+    
+ }
+ 
+ aside span#billLab {
+    top: 80px;
+    left: 0px;
+    width: 220px;  
+    font-family: monospace;
+    /* text-transform: uppercase; */
+    color: rgb(185, 178, 143);
+     
+ }
+ 
+ aside span#totalBill {
+    top: 80px;
+    left: 280px;
+    width: 100px;
+    text-align: right;
+    font-family: monospace;
+    /* text-transform: uppercase; */
+    color: rgb(185, 178, 143);
+    
+ } 

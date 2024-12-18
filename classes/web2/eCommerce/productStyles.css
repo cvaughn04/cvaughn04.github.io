@@ -1,0 +1,149 @@
+:root {
+    --nav-color: #1D2125;
+    --background-color: #161A1D;
+    --footer-color: #282E33;
+
+
+    --text-color: #94C748;
+    --primary-color: #EFFFD6;
+    --blur: rgba(18, 22, 24, 1);
+
+}
+
+/* Dark theme */
+body.dark-theme {
+    
+    --nav-color: #DCDFE4;
+    --background-color: #FFFFFF;
+    --text-color: #091E42;
+    --footer-color: #DCDFE4;
+    --primary-color: #0052CC; /* Atlassian Blue */
+    --blur: rgba(255, 255, 255, 1);
+}
+
+.product-selection {
+    margin: 10px;
+    padding: 15px;
+    padding-top: 0px;
+    border: 1px solid var(--nav-color);
+    border-radius: 5px;
+    background-color: var(--nav-color);
+    color: var(--text-color);
+    /* flex: auto;
+    flex-direction: row;
+    justify-content: space-between; */
+}
+
+.product-selection h2 {
+    margin-bottom: 10px;
+}
+
+.product-selection label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+.product-selection select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--footer-color);
+    color: var(--text-color);
+
+
+    border: 1px solid #555;
+    font-size: 16px;
+}
+
+@import "bourbon";
+
+body {
+  background: var(--footer-color);
+}
+.list {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.list--item {
+  width:25%;
+  float:left;
+  padding:10px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 25;
+  border-color: var(--text-color);
+  
+  figure {
+    background: var(--footer-color);
+    box-shadow:0 2px 3px rgba(black,0.1);
+    /* position:relative; */
+    padding: 10px;
+    border-radius: 25;
+    border-color: var(--text-color);
+    color: var(--text-color);
+
+  }
+  
+  img {
+    display:block;
+    width:100%;
+  }
+  
+  figcaption {
+    padding:6px 12px 12px;
+    font-size:18px;
+    color: var(--primary-color);
+  }
+  header, figcaption {
+    /* padding-left:25%; */
+  }
+  header {
+    margin-top:12px;
+  }
+  h2 {
+    font-size:14px;
+    padding:0 0 0;
+    margin:0;
+  }
+  
+  
+}
+/* .floater {
+  width:20%;
+  height:50px;
+  background:var(--primary-color);
+  position: absolute;
+  left:0; 
+} */
+
+@media screen and (min-width: 1200px) {
+  .container {
+  	width:90%;
+  }
+  .list--item {
+    width:20%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .list--item {
+    width:33%;
+  }
+}
+@media screen and (max-width: 620px) {
+  .list--item {
+    width:50%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .list--item {
+    width:100%;
+  }
+}

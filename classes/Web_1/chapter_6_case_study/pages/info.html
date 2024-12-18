@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>c_vaughn case study</title>
+    <link rel="stylesheet" href="pagestyles.css">
+    <script src="info.js" defer></script>
+</head>
+
+<body>
+<header>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="aboutme.html">About Me</a></li>
+        <li class="logo"><a href="../index.html">Logo</a></li>
+        <li><a href="info.html">Math</a></li>
+        <li><a href="more.html">Screen(CH3,4,5)</a></li>
+      </ul>
+    </nav>
+  </header>
+
+    <article>
+      <h2>Items Available on our Etsy Store</h2>
+
+      <form>
+         <input type="number" min="0" max="9999" id="chicken"/>
+         <label for="chicken">Screen ($10.00)</label>
+         <input type="number" min="0" max="9999" id="halibut"/>
+         <label for="halibut">Profile Picture ($5.00)</label>
+         <input type="checkbox" id="burger" value="50.00" />
+         <label for="burger"> Full pack, Borders and Transitions ($50.00)</label>
+         <div>
+          <img  src="../images/FROGS ON LOGS.png" style="height:320px;width:540px;top:110px;left:900px;position:absolute;">
+        
+        </div>
+         <!-- <input type="checkbox" id="salmon" value="18.95" />
+         <label for="salmon">Grilled salmon ($18.95)</label>
+         <input type="checkbox" id="salad" value="7.95" />
+         <label for="salad">Side salad ($7.95)</label> -->
+          
+      </form>
+   </article>
+   <aside>
+      <span id="totalLab">Total Cost of Items</span>
+      <span id="foodTotal"></span>
+      <span id="taxLab">Etsy Tax</span>
+      <span id="foodTax"></span>
+      <span id="billLab">TOTAL</span>
+      <span id="totalBill"></span>       
+              
+   </aside>
+
+   <section>
+    <h1>Create your Account</h1>
+    <form id="signup" name="signup" method="get" action="formsubmit.html">
+       <fieldset>
+          <legend>Enter your Account Information</legend>
+          <input type="text" id="user" name="user" required />
+          <label for="user">Username</label>
+
+          <input type="password" id="pwd" name="pwd" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"/>
+          <label for="pwd">Password</label>
+
+          <input type="password" id="pwd2" name="pwd2" required  />            
+                    <label for="confirm">Confirm Password</label>
+
+          <input type="submit" id="submitButton" value="Save" />
+       </fieldset>
+    </form>
+ </section>
+  <!-- <section class="features">
+
+    <figure>
+        <img src="#" alt="button">
+        <figcaption>Button</figcaption>
+      </figure>
+      <figure>
+          <img src="#" alt="button">
+          <figcaption>Button</figcaption>
+        </figure>
+        <figure>
+            <img src="#" alt="button">
+            <figcaption>Button</figcaption>
+          </figure>
+  </section> -->
+
+  <footer>
+    vondesignstudio@yahoo.com
+  </footer>
+
+  </body>
+
+  </html>

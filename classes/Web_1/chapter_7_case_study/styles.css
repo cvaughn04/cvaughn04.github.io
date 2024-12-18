@@ -1,0 +1,230 @@
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* reset rules */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+
+
+body {
+    background: rgb(58, 58, 58);
+    color: white;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  
+  
+  header {
+    background-color: rgb(83, 65, 65);
+    background-image: url("images/banner2.png");
+    background-size: 80%;
+    background-position: bottom;
+    height: 400px;
+    padding: 0px;
+    text-align: center;
+    background-repeat: no-repeat;
+  }
+  
+  header a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-top: 40px;
+  }
+  
+  header .logo a {
+    background-image: url("images/vd_logo.png");
+    background-size: 80px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 80px;
+    position: relative;
+    text-indent: -9999999px;
+    top: -30px;
+    width: 100px;
+ 
+  }
+  
+  nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  nav li {
+    display: inline-block;
+    padding: 0px;
+    margin-right: 20px;
+  }
+  
+
+  
+  .features {
+    background: white;
+    color: gray;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .features figure {
+    margin: auto;
+    text-align: center;
+    text-transform: uppercase;
+    width: 200px;
+  }
+  
+  .features figure img {
+    border: 1px solid white;
+    border-radius: 10%;
+    box-shadow: gray 0 0 10px;
+    width: 200px;
+  }
+
+  .container {
+    align-items: center;
+    justify-content: center; 
+    background-color: rgb(83, 65, 65);    
+    display: flex;
+    padding: 50px;
+  }
+
+  .containerR {
+    align-items: center;
+    justify-content: center; 
+    display: flow-root;
+
+    background-color: rgb(83, 65, 65);    
+    padding: 50px;
+  }
+  
+  img .float{
+    float: left;
+  }
+
+  img .floatr{
+    float: right;
+  }
+  
+  .text {
+    font-family: monospace;
+    /* text-transform: uppercase; */
+    color: rgb(185, 178, 143);
+    font-size: 20px;
+    padding-left: 20px;
+    float: left;
+  }
+
+  .textr {
+    font-family: monospace;
+    /* text-transform: uppercase; */
+    color: rgb(185, 178, 143);
+    font-size: 20px;
+    padding-right: 20px;
+
+  }
+
+
+
+
+  footer {
+    background: black;
+    color: gray;
+    font-size: 20px;
+    padding: 20px 20px;
+    text-align: center;
+  }
+
+
+  /*-------------------- Project Styles ------------------*/
+
+article {
+  background-color: rgb(83, 65, 65);
+  margin-top: 0;
+  padding-bottom: 30px;
+}
+
+article > h1 {
+  font-size: 2em;
+  text-align: center;
+  margin: 0;
+  padding: 20px 0;
+  width: 100%;
+}
+
+section {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+div#customerInput {
+  flex: 1 1 100px;
+}
+
+div#customerBox {
+  flex: 1 1 200px;
+  padding: 10px 30px 10px 10px;
+}
+
+label {
+  font-size: 1.1em;
+  display: inline-block;
+  margin-left: 15px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+input#customerName {
+  width: 300px;
+  font-size: 1em;
+  
+}
+
+input#addButton, input#searchButton, input#removeButton {
+  width: 90px;
+  height: 30px; 
+}
+
+input#addButton {
+  margin-left: 110px;
+}
+
+div#customerBox h1 {
+  font-size: 1.2em;
+  margin: 0 0 15px 0;
+}
+
+p#status {
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  color: red;
+}
+
+
+  

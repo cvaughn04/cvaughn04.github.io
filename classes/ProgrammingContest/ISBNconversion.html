@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre style="word-wrap: break-word; white-space: pre-wrap;">
+    #include &lt;iostream&gt;
+    #include &lt;vector&gt;
+    #include &lt;string&gt;
+    #include &lt;cmath&gt;
+    #include&lt;algorithm&gt;
+    
+    using namespace std;
+    
+    bool checkValidity(string s);
+    bool validCheckSum(string s);
+    string makeISBN13(string s);
+    
+    int main() {
+    
+        int n;
+        string s;
+        cin &gt;&gt; n;
+        for (int i = 0; i &lt; n; ++i) {
+            cin &gt;&gt; s;
+            if (checkValidity(s)) {
+                if (validCheckSum(s)) {
+                    cout &lt;&lt; makeISBN13(s) &lt;&lt; endl;
+                } else {
+                    cout &lt;&lt; "invalid" &lt;&lt; endl;
+                }
+            } else {
+                cout &lt;&lt; "invalid" &lt;&lt; endl;
+            }
+        }
+    
+        
+        
+        return 0;
+    }
+    
+    bool checkValidity(string s) {
+        bool valid = true;
+        int hyphenCount = 0;
+        int validCharCount = 0;
+    
+        if (s.length() &lt; 10 or s.length() &gt; 13) {
+            valid = false;
+            // cout &lt;&lt; "lenght fail    length" &lt;&lt; s.length() &lt;&lt;  endl;
+        }
+    
+        if (s[0] == '-' or s[s.length() - 1] == '-') {
+            valid = false;
+            // cout &lt;&lt; "end/start fail" &lt;&lt; endl;
+    
+        }
+    
+        for (int i = 0; i &lt; s.length(); ++i) {
+            if (s[i] == '-') {
+                ++hyphenCount;
+            } else if (isdigit(s[i]) or s[s.length()-1] == 'X') {
+                ++validCharCount;
+            }
+            if (i != s.length()-1) {
+                if (!isdigit(s[i])) {
+                    if (s[i] != '-') {
+                            valid = false;                
+                    } 
+                }
+            } else {
+                if (!isdigit(s[i])) {
+                    if (s[i] != 'X') {
+                            valid = false;                
+                    } 
+                }
+            }
+    
+            if (s[i] == '-' and s[i+1] == '-') {
+                valid = false;
+                // cout &lt;&lt; "back to back hyphen" &lt;&lt; endl;
+    
+            }
+        }
+    
+        if (hyphenCount &gt; 3) {
+            valid = false;
+            //  cout &lt;&lt; "too many hyphen" &lt;&lt; endl;
+    
+        } else if (hyphenCount == 3) {
+            if (s[s.length() - 1 - 1] != '-') {
+                valid = false;
+                // cout &lt;&lt; "hyphen not at end before checksum" &lt;&lt; endl;
+    
+            }
+        }
+    
+        if (validCharCount != 10) {
+            valid = false;
+        }
+    
+        return valid;
+    }
+    
+    bool validCheckSum(string s) {
+        vector&lt;int&gt; vec;
+        int count = 0;
+        bool valid = true;
+    
+        s.erase(remove(s.begin(), s.end(), '-'), s.end());
+        // cout &lt;&lt; "string " &lt;&lt; s &lt;&lt; endl;
+    
+        for (int i = 0; i &lt; s.length(); ++i) {
+            if (isdigit(s[i])) {
+                vec.push_back(s[i] - '0');
+            } else {
+                vec.push_back(10);
+            }
+        }
+    
+    
+        int j = 10;
+        int tmp;
+    
+        for (int i = 0; i &lt; 10; ++i) {
+            count +=  (j * vec[i]);
+            --j;
+        }
+        //  cout &lt;&lt; count &lt;&lt; endl;
+    
+        if (count % 11 != 0) {
+            valid = false;
+        }
+    
+        return valid;
+    }
+    
+    string makeISBN13(string s) {
+        vector&lt;int&gt; vec;
+        int count = 0;
+        bool valid = true;
+        string prepend = "978-";
+        s = prepend + s;
+        string scopy = s;
+    
+    
+        s.erase(remove(s.begin(), s.end(), '-'), s.end());
+        // cout &lt;&lt; "string " &lt;&lt; s &lt;&lt; endl;
+    
+        for (int i = 0; i &lt; s.length(); ++i) {
+            if (isdigit(s[i])) {
+                vec.push_back(s[i] - '0');
+            } else {
+                vec.push_back(10);
+            }
+        }
+    
+        int tmp;
+    
+        for (int i = 0; i &lt; vec.size(); ++i) {
+            if (i % 2 == 0) {
+                count += vec[i];
+            } else {
+                count += 3 * vec[i];
+            }
+        }
+        //  cout &lt;&lt; count &lt;&lt; endl;
+    
+        int rem = count % 10;
+        vec[vec.size() - 1] += (10-rem);
+        vec[vec.size() - 1] %= 10;
+    
+        string a = to_string(vec[vec.size() -1]);
+        scopy.replace(scopy.size() - 1, 1, a);
+        return scopy;
+    }
+
+    </pre>
+    
+    
+</body>
+</html>

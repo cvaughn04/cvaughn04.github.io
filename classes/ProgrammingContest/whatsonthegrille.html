@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre style="word-wrap: break-word; white-space: pre-wrap;">
+    #include &lt;iostream&gt;
+    #include &lt;vector&gt;
+    #include &lt;string&gt;
+
+    using namespace std;
+
+    void PrintGrille(const vector&lt;vector&lt;char&gt;&gt; &  grille) {
+        for (size_t r = 0; r &lt; grille.size(); ++r) {
+            for (size_t c = 0; c &lt; grille.size(); ++c) {
+                cout &lt;&lt; grille[r][c];
+            }
+            cout &lt;&lt; endl;
+        }
+        cout &lt;&lt; endl;
+    }
+
+    vector&lt;vector&lt;char&gt;&gt; RotateGrille(const vector&lt;vector&lt;char&gt;&gt; & grille) {
+        auto rv = grille;
+
+        size_t cols = grille.size() -1;
+        for(size_t r =0; r &lt; grille.size(); ++r) {
+            for (size_t c = 0; c &lt;  grille.size(); ++c) {
+                rv[c][cols-r] = grille[r][c];
+            }
+        }
+
+        return rv;
+
+    }
+
+    bool DecodeString(string line, size_t & currentPos, string & plainText,
+    string & covered, const vector&lt;vector&lt;char&gt;&gt; & grille) {
+        for(size_t r =0; r &lt; grille.size(); ++r) {
+            for (size_t c = 0; c &lt;  grille.size(); ++c) {
+                if (grille[r][c] == '.') {
+                    size_t pos = r*grille.size() + c;
+                    plainText[pos] = line[currentPos];
+                    if (covered[pos] == 'X') {
+                        cout &lt;&lt; "invalid grille" &lt;&lt; endl;
+                        return false;
+                    } else {
+                        covered[pos] = 'X';
+                    }
+                    currentPos++;
+                }
+            }
+        }
+        
+        return true;
+    }
+        
+    int main() {
+        size_t size;
+
+        cin &gt;&gt; size;
+
+        if (size % 2 != 0) {
+            cout &lt;&lt; "invalid grille" &lt;&lt; endl;
+            
+            return 0;
+        }
+
+        string  codeWord;
+
+        vector&lt;vector&lt;char&gt;&gt; grille(size, vector&lt;char&gt;(size));
+
+        for(size_t r =0; r &lt; size; ++r) {
+            for(size_t c = 0; c &lt; size; ++c) {
+                cin &gt;&gt; grille[r][c];
+            }
+        }
+
+        cin &gt;&gt; codeWord;
+        size_t currentPos = 0;
+        string covered = codeWord;
+        string plainText = codeWord; 
+
+        for(size_t i = 0; i &lt; 4; ++i) {
+                if(not DecodeString(codeWord, currentPos, plainText, covered, grille)) {
+                    return 0;
+                }
+                grille = RotateGrille(grille);
+        }
+
+        covered = covered.substr(0,size*size);
+        for (auto x: covered) {
+            if (x != 'X') {
+            cout &lt;&lt; "invalid grille" &lt;&lt; endl;
+            return 0;
+            }
+        }
+        cout &lt;&lt; plainText &lt;&lt; endl;
+
+        return 0;
+    } 
+    
+    </pre>
+    
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Engineering Group 2</title>
+    <link rel="stylesheet" href="stylesheets/styles.css" />
+    <link rel="stylesheet" href="stylesheets/tabStyles.css" />
+    <link rel="stylesheet" href="stylesheets/scrollStyles.css" />
+    <link rel="stylesheet" href="stylesheets/cardStyles.css" />
+    <link rel="stylesheet" href="stylesheets/cardStylesRecipe.css" />
+
+    <script src="script.js" defer></script>
+
+</head>
+
+<body>
+
+    <nav>
+        <div class="title">Food Finder</div>
+        <div class="nav-buttons">
+            <div class="button">Export</div>
+            <a href="login/Login.html" class="button">Login</a>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="left-section">
+            <h1 class="left-header">Get Started</h1>
+            <input type="text" placeholder="Enter a meal or food you're looking for..." class="food-input-box"></input>
+            <select class="radius-select">
+                <option value="" disabled selected>Radius</option>
+                <option value="1">1 mile</option>
+                <option value="2">2 miles</option>
+                <option value="5">5 miles</option>
+                <option value="10">10 miles</option>
+            </select>
+            <div class="search-button" onclick=" searchButtonFunc()">Search for a meal</div>
+            <p class="left-text">What were searching for:</p>
+            <p class="left-text">Scanning nearby retauraunts for the meal that you've entered.
+                While we search for retaurants, were also looking for recipes
+                featuring the food/meal that your requesting.
+            </p>
+        </div>
+
+
+        <div class="right-section">
+            <main>
+                <input class="tab" id="tab1" type="radio" name="tabs" checked>
+                <label for="tab1">Restaurant</label>
+                <input class="tab" id="tab2" type="radio" name="tabs">
+                <label for="tab2">Recipes</label>
+                <input class="tab" id="tab3" type="radio" name="tabs">
+                <label for="tab3">Van Houten</label>
+
+                <section id="content1">
+                    <div class="scrolling-box">
+                        <!-- <div class="card">
+                        <div class="card-media">
+                            <div class="distance">1.2 miles</div>
+                        </div>
+                        <div class="card-description">
+                            <div class="about-place">
+                                <div class="place">
+                                    <a class="place-name" href="https://www.allrecipes.com/recipe/45957/chicken-makhani-indian-butter-chicken/">Little Caesars</a>
+                                    <p class="place-speciality">(123)-456-789</p>
+                                </div>
+                                <div class="place-review">
+                                    <p class="rating"> &#x2605;</p>
+                                    <p class="per-person">Close: 10:00PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    
+                    <!-- <div class="card">
+                    <div class="card">
+                            <div class="card-media" style="background-image: url(https://www.ledr.com/colours/black.jpg);">
+                                <div class="distance"></div>
+                            </div>
+                            <div class="card-description">
+                                <div class="about-place">
+                                    <div class="place">
+                                        <a class="place-name">Name</a>
+                                        <p class="place-speciality">(123)-456-789</p>
+                                    </div>
+                                    <div class="place-review">
+                                        <p class="rating"> &#x2605;</p>
+                                        <p class="per-person">Close: 12:00AM</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-media" style="background-image: url(https://www.ledr.com/colours/black.jpg);">
+                                <div class="distance">0.0 miles</div>
+                            </div>
+                            <div class="card-description">
+                                <div class="about-place">
+                                    <div class="place">
+                                        <a class="place-name">Name</a>
+                                        <p class="place-speciality">(123)-456-789</p>
+                                    </div>
+                                    <div class="place-review">
+                                        <p class="rating"> &#x2605;</p>
+                                        <p class="per-person">Close: 12:00AM</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-media" style="background-image: url(https://www.ledr.com/colours/black.jpg);">
+                                <div class="distance">0.0 miles</div>
+                            </div>
+                            <div class="card-description">
+                                <div class="about-place">
+                                    <div class="place">
+                                        <a class="place-name">Name</a>
+                                        <p class="place-speciality">(123)-456-789</p>
+                                    </div>
+                                    <div class="place-review">
+                                        <p class="rating"> &#x2605;</p>
+                                        <p class="per-person">Close: 12:00AM</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-media" style="background-image: url(https://www.ledr.com/colours/black.jpg);">
+                                <div class="distance">0.0 miles</div>
+                            </div>
+                            <div class="card-description">
+                                <div class="about-place">
+                                    <div class="place">
+                                        <a class="place-name">Name</a>
+                                        <p class="place-speciality">(123)-456-789</p>
+                                    </div>
+                                    <div class="place-review">
+                                        <p class="rating"> &#x2605;</p>
+                                        <p class="per-person">Close: 12:00AM</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-media" style="background-image: url()">
+                                <div class="distance"></div>
+                            </div>
+                            <div class="card-description">
+                                <div class="about-place">
+                                    <div class="place">
+                                        <a class="place-name"></a>
+                                        <p class="place-speciality"></p>
+                                    </div>
+                                    <div class="place-review">
+                                        <p class="rating"></p>
+                                        <p class="per-person"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </section>
+
+                <!-- This section is for recipes -->
+                <section id="content2">
+                    <div class="loading-container-recipe" style="display: none;">
+                        <div class="loader-recipe" style="display: none;"></div>
+                    </div>
+                    <div class="scrolling-box">
+
+
+                    </div>
+                </section>
+
+                <section id="content3">
+                    <div id="loading-container" style="display: none;">
+                        <div id="loader" style="display: none;"></div>
+                    </div>
+                    <div class="scrolling-box">
+                    </div>
+                </section>
+            </main>
+
+        </div>
+
+
+        <div class="right-bar">
+        </div>
+
+
+    </div>
+</body>
+
+</html>

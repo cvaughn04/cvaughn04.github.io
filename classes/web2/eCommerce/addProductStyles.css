@@ -1,0 +1,81 @@
+:root {
+    --nav-color: #1D2125;
+    --background-color: #161A1D;
+    --footer-color: #282E33;
+    --text-color: #94C748;
+    --primary-color: #EFFFD6;
+    --blur: rgba(18, 22, 24, 1);
+}
+
+/* Dark theme */
+body.dark-theme {
+    --nav-color: #DCDFE4;
+    --background-color: #FFFFFF;
+    --text-color: #091E42;
+    --footer-color: #DCDFE4;
+    --primary-color: #0052CC; /* Atlassian Blue */
+    --blur: rgba(255, 255, 255, 1);
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    height: 100vh;
+}
+
+.container {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    color: var(--text-color);
+}
+
+form {
+    background-color: var(--footer-color);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    width: 60%;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--primary-color);
+}
+
+input[type="file"],
+input[type="number"],
+input[type="text"],
+textarea {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid var(--primary-color);
+    border-radius: 4px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+button {
+    background-color: var(--text-color);
+    color: var(--nav-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: var(--primary-color);
+    color: var(--nav-color);
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <!--
+      Exam 1
+      Put your name here! -- Cole Vaughn
+   -->
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+   <title>In Class Exam 1</title>
+   <link rel="stylesheet" href="styles1.css" />
+   <script src="SimpleTable.js" defer></script>
+</head>
+
+<body>
+   <header>
+      <h1>
+         Exam 1 - Table Listing
+      </h1>
+   </header>
+
+   <article>
+      <h2>Movie List</h2>
+      <div id="movieList">
+         <table>
+            <thead>
+               <th>Movie</th>
+               <th>Description</th>
+               <th>Score</th>
+               <th>Icon</th>
+            </thead>
+            <tbody>
+            </tbody>
+         </table>
+      </div>
+   </article>
+
+   Last Updated: <span id='demo'></span>
+
+   <script>
+      function myFunction() {
+         var x = document.lastModified;
+         document.getElementById("demo").innerHTML = new Date(document.lastModified);
+      }
+      myFunction();
+   </script>
+
+</body>
+
+</html>

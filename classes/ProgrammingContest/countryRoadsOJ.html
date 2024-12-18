@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre style="word-wrap: break-word; white-space: pre-wrap;">
+    #include &lt;bits/stdc++.h&gt;
+    using namespace std;
+    
+    #define pii pair&lt;int,int&gt;
+    #define vi vector&lt;int&gt;
+    #define wgraph vector&lt;pair&lt;int,int&gt;&gt;
+    #define ll long long int
+    #define pb push_back
+    
+    const int MAX_INT = numeric_limits&lt;int&gt;::max();
+    const int MIN_INT = numeric_limits&lt;int&gt;::min();
+    
+    int main() {
+        //REMINDER DONT USE endl use "\n"
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        
+        int cases;
+        cin &gt;&gt; cases;
+    
+        for (int i = 1; i &lt;= cases; ++i) {
+            int n, lines, t;
+            cin &gt;&gt; n &gt;&gt; lines;
+    
+            vector&lt;pair&lt;int,int&gt;&gt; adj[n];
+    
+            for (int j = 0; j &lt; lines; ++j) {
+                    int u, v, w;
+                    cin &gt;&gt; u;
+                    cin &gt;&gt; v;
+                    cin &gt;&gt; w;
+                    pair&lt;int,int&gt; temp {v, w};
+                    pair&lt;int,int&gt; temp2 {u, w};
+    
+                    adj[u].push_back(temp);
+                    adj[v].push_back(temp2);
+            }
+            cin &gt;&gt; t;
+            int x = t;
+            
+            priority_queue&lt;pair&lt;int,int&gt;&gt; q;
+            bool processed[n] = {false};
+            int distance[n];
+    
+            for (int i = 0; i &lt; n; i++) {
+                distance[i] = MAX_INT;
+            }
+            distance[x] = 0;
+            q.push({0,x});
+            while (!q.empty()) {
+                int a = q.top().second; q.pop();
+                if (processed[a]) continue;
+                processed[a] = true;
+                for (auto u : adj[a]) {
+                    int b = u.first, w = u.second;
+                    int bottleneckLarge = max(distance[a], w);
+                    if (bottleneckLarge &lt; distance[b]) {
+                        distance[b] = bottleneckLarge;
+                        q.push({-bottleneckLarge,b});
+                    }
+                }
+            } 
+                        
+            cout &lt;&lt; "Case " &lt;&lt; i &lt;&lt; ":" &lt;&lt; '\n';
+            for (int j = 0; j &lt; n; ++j) {
+                if (j == t) {
+                    cout &lt;&lt; "0" &lt;&lt; '\n';
+                } else {
+                    int temp = distance[j];
+                    if (temp == MAX_INT) {
+                        cout &lt;&lt; "Impossible" &lt;&lt; "\n"; 
+                    } else {
+                        cout &lt;&lt; temp &lt;&lt; "\n";
+                    }
+                }
+            } 
+        }
+    
+        return 0;
+    }
+        
+        
+
+    </pre>
+    
+    
+</body>
+</html>

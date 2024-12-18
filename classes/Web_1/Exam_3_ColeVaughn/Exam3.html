@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Example</title>
+
+    <script>
+        function writeCookie(name, value, expDate, path, domain, secure) {
+            if (name && value) {
+                let cStr = name + "=" + encodeURIComponent(value);
+                if (expDate) cStr += ";expires=" + expDate.toUTCString();
+                if (path) cStr += ";path=" + path;
+                if (domain) cStr += ";domain=" + domain;
+                if (secure) cStr += ";secure=" + secure;
+                document.cookie = cStr;
+            }
+        }
+
+        function readCookie() {
+            let fields = {};
+
+            if (document.cookie) {
+                let cookieList = document.cookie.split("; ");
+
+                for (items of cookieList) {
+                    let cookie = items.split("=");
+                    let name = cookie[0];
+                    let value = decodeURIComponent(cookie[1]);
+                    fields[name] = value;
+                }
+                return fields;
+            }
+        }
+
+        function checkCookie() {
+            let expire = new Date();
+            expire.setHours(expire.getHours() + 48);
+            let pwd = document.getElementById("pwd").value;
+            let username = document.getElementById("user").value;
+            let state = document.getElementById("state").value;
+            let salary = document.getElementById("salary").value;
+
+
+
+
+            if (document.cookie) {
+                let CookieData = readCookie();
+                feedback.innerHTML = "Your cookie data: " + "&emsp; First & Last: " + CookieData.user_Data  + " &emsp;    Cookie: " + CookieData.pwd_Data + " &emsp;    Movie: " + CookieData.state_Data + " &emsp;    Salary: " + CookieData.salary_Data;
+            } else {
+                feedback.innerHTML = "Enter some Cookie Data";
+
+                if (pwd != "" && pwd != null) {  
+                    writeCookie("pwd_Data", pwd, expire);
+                }
+
+                if (username != "" && username != null) {  
+                    writeCookie("user_Data", username, expire);
+                }
+
+                if (state != "" && state != null) {  
+                    writeCookie("state_Data", state, expire);
+                }
+                if (salary != "" && salary != null) {  
+                    writeCookie("salary_Data", salary, expire);
+                }
+            }
+        }
+
+        function deleteCookies() {
+            let expired = new Date();
+            let CookieData = readCookie();
+
+            let pwd = CookieData.pwd_Data;
+            let username = CookieData.user_Data;
+            let state = CookieData.state_Data;
+            let salary = CookieData.salary_Data;
+
+
+
+            if (document.cookie) {
+                if (pwd != "" && pwd != null) {  
+                    writeCookie("pwd_Data", pwd, expired);
+                }
+
+                if (username != "" && username != null) {  
+                    writeCookie("user_Data", username, expired);
+                }
+
+                if (state != "" && state != null) {  
+                    writeCookie("state_Data", state, expired);
+                }
+
+                if (salary != "" && salary != null) {  
+                    writeCookie("salary_Data", salary, expired);
+                }
+            }
+
+            checkCookie();
+
+        }
+
+        function updateButton() {
+            checkCookie();
+            document.getElementById("pwd").value = "";
+            document.getElementById("user").value = "";
+            document.getElementById("state").value = "";
+            document.getElementById("salary").value = "";
+
+            checkCookie();
+
+         
+
+        }
+
+        function checkCookieLoad(){
+            checkCookie();
+            let CookieData = readCookie();
+
+            let pwd = CookieData.pwd_Data;
+            let username = CookieData.user_Data;
+            let state = CookieData.state_Data;
+            let salary = CookieData.salary_Data;
+            document.getElementById("pwd").value = pwd;
+            document.getElementById("user").value = username;
+            document.getElementById("state").value = state;
+            document.getElementById("salary").value = salary;
+
+        }
+    </script>
+</head>
+
+<body onload="checkCookieLoad()">
+    <legend>Exam 3</legend>
+    <label for="user">First & Last</label>
+    <input type="text" id="user" name="user" required />
+
+    <label for="pwd">Favorite Cookie</label>
+    <input type="text" id="pwd" name="pwd" required /> </body>
+
+    <label for="state">Favorite Movie</label>
+    <input type="text" id="state" name="state" required />
+
+    <label for="state">Salary</label>
+    <input type="text" id="salary" name="salary" required />
+
+    
+
+    
+
+    <input type="submit" id="submitButton" value="Save" onclick = "updateButton()"/>
+    <!-- <input type="submit" id="submitButton" value="Update Cookies" onclick = "updateButton()"/> -->
+    <input type="submit" id="submitButton" value="Delete Cookies" onclick = "deleteCookies()"/>
+
+
+
+
+    <div id="feedback">No Cookies</div>
+</html>

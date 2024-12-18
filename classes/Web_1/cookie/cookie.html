@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Example</title>
+
+    <script>
+        function writeCookie(name, value, expDate, path, domain, secure) {
+            if (name && value) {
+                let cStr = name + "=" + encodeURIComponent(value);
+                if (expDate) cStr += ";expires=" + expDate.toUTCString();
+                if (path) cStr += ";path=" + path;
+                if (domain) cStr += ";domain=" + domain;
+                if (secure) cStr += ";secure=" + secure;
+                document.cookie = cStr;
+            }
+        }
+
+        function readCookie() {
+            let fields = {};
+
+            if (document.cookie) {
+                let cookieList = document.cookie.split("; ");
+
+                for (items of cookieList) {
+                    let cookie = items.split("=");
+                    let name = cookie[0];
+                    let value = decodeURIComponent(cookie[1]);
+                    fields[name] = value;
+                }
+                return fields;
+            }
+        }
+
+        function checkCookie() {
+            let expire = new Date();
+            expire.setHours(expire.getHours() + 48);
+
+            if (document.cookie) {
+                let CookieData = readCookie();
+                alert("Your cookie data: " + CookieData.Some_Data);
+            } else {
+                someData = prompt("Please enter some data:" , "");
+                if (someData != "" && someData != null) {  
+                    writeCookie("Some_Data", someData, expire);
+                }
+            }
+        }
+    </script>
+</head>
+
+<body onload = "checkCookie()">
+My generic cookie page
+</body>
+
+</html>
